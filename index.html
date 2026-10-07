@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조주연 | Profile</title>
+    <style>
+        /* Modern Reset & Typography */
+        :root {
+            --bg-color: #fbfbfd;
+            --card-bg: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-color: #0071e3;
+            --border-color: #e5e5ea;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --max-width: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fixed Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 52px;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            max-width: var(--max-width);
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Main Container */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 100px 24px 80px;
+        }
+
+        section {
+            margin-bottom: 80px;
+            padding-top: 20px;
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 0 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .hero-image-placeholder {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        /* Section Typography & Layout */
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        /* About Section */
+        .about-description {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+        }
+
+        .info-item label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .info-item span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Lists Formatting */
+        ul {
+            list-style: none;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .custom-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Subsections & Roles */
+        .subsection-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .role-group {
+            margin: 20px 0;
+            padding-left: 16px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .role-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .image-placeholder {
+            display: inline-block;
+            background: #f2f2f7;
+            border: 1px dashed var(--text-secondary);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-secondary);
+            font-size: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            #hero {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .hero-image-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navigation Bar -->
+    <header>
+        <nav>
+            <a href="#hero" class="nav-logo">조주연</a>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">학력 & 자격</a></li>
+                <li><a href="#experience">경력 사항</a></li>
+                <li><a href="#projects">주요 활동</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-text">
+                <h1>조주연</h1>
+                <p>내일의 성장을 위해 오늘을 단단하게 채워가는 중</p>
+            </div>
+            <div class="hero-image-placeholder">
+                [사진]
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="card">
+                <p class="about-description">
+                    책임감이 강하고 사교성이 좋아 사람들과 원활하게 소통합니다. 스포츠 현장에서 사람들의 시선을 사로잡고 참여를 이끌어내는 일에 매력을 느끼며, 스포츠 마케팅 분야의 이벤트 기획 및 홍보 전문가를 꿈꾸고 있습니다.
+                </p>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>관심 분야</label>
+                        <span>스포츠 마케팅, 스포츠 미디어</span>
+                    </div>
+                    <div class="info-item">
+                        <label>핵심 강점</label>
+                        <span>강한 책임감, 우수한 사교성 및 친화력</span>
+                    </div>
+                    <div class="info-item">
+                        <label>희망 진로 · 직무</label>
+                        <span>스포츠 마케팅 (이벤트 기획 / 홍보)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certification Section -->
+        <section id="education">
+            <h2 class="section-title">학력 & 자격 (Education & Certification)</h2>
+            <div class="card">
+                <h3 class="subsection-title">학력</h3>
+                <ul class="custom-list">
+                    <li><strong>서경대학교</strong> 스포츠테크놀로지학과</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="subsection-title">자격증</h3>
+                <ul class="custom-list">
+                    <li><strong>2급 스포츠 동작분석가</strong></li>
+                </ul>
+                <div class="image-placeholder">관련 자료: [사진]</div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">경력 사항 (Experience)</h2>
+            <div class="card">
+                <p class="about-description" style="margin-bottom: 16px;">
+                    다양한 현장에서 손님 및 고객과 소통하며 유연한 현장 응대력과 다재다능함을 키웠습니다.
+                </p>
+                <h3 class="subsection-title" style="font-size: 16px; margin-bottom: 12px;">아르바이트 및 현장 경험</h3>
+                <ul class="custom-list">
+                    <li><strong>스포츠/교육:</strong> 체대입시 강사</li>
+                    <li><strong>서비스/식음료:</strong> 편의점, 피자 전문점, 고깃집, 떡볶이 전문점, 영화관</li>
+                    <li><strong>유통/판매:</strong> 브랜드 판매</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects & Activities Section -->
+        <section id="projects">
+            <h2 class="section-title">주요 활동 (Projects & Activities)</h2>
+            <div class="card">
+                <h3 class="subsection-title">🏆 서경대학교 청야체전 콘텐츠 기획 및 제작·운영 (SPARK 동아리)</h3>
+                <p style="margin-bottom: 20px; color: var(--text-secondary); font-size: 15px;">
+                    학과 구성원 모두가 함께 즐기는 스포츠 이벤트를 목표로, 선수 소개부터 경기 일정 및 MVP 선정까지의 전체 콘텐츠 프로세스를 직접 기획하고 운영했습니다.
+                </p>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin-top: 24px;">📌 주요 담당 역할</h4>
+                
+                <div class="role-group">
+                    <div class="role-title">기획 (Overall Planning)</div>
+                    <ul class="custom-list">
+                        <li>출전 선수 명단 취합 및 프로필 촬영 콘셉트(장소·배경·구도·포즈 가이드) 기획</li>
+                        <li>종목별 게시물 및 경기 일정 디자인 컨셉(무드, 컬러, 그래픽 요소) 수립</li>
+                        <li>콘텐츠 업로드 일정 계획 및 전체 방향성 설정</li>
+                    </ul>
+                </div>
+
+                <div class="role-group">
+                    <div class="role-title">촬영 (Photography)</div>
+                    <ul class="custom-list">
+                        <li>선수 개인 프로필 촬영 (다양한 각도 및 포즈 연출)</li>
+                    </ul>
+                </div>
+
+                <div class="role-group">
+                    <div class="role-title">홍보 & 콘텐츠 제작 (Media & PR)</div>
+                    <ul class="custom-list">
+                        <li>촬영본을 활용한 출전 선수 프로필 및 라인업 소개 카드뉴스 제작</li>
+                        <li>경기 일정 안내, 경기 결과 및 MVP 선수 발표 게시물 제작</li>
+                        <li>인스타그램 공식 계정 게시물 업로드 및 운영</li>
+                    </ul>
+                </div>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">💡 활동을 통한 성찰과 성과</h4>
+                <ul class="custom-list">
+                    <li>세부 요소를 직접 구상하고 아이디어를 구체화하는 과정에서 기획 업무의 즐거움을 발견했습니다.</li>
+                    <li>학우들의 관심과 참여를 이끌어내기 위한 홍보 전략을 치열하게 고민하며 실행력과 세심함을 다졌습니다.</li>
+                </ul>
+
+                <div class="image-placeholder" style="margin-top: 20px;">활동 사진: [사진]</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Contact (연락처)</h2>
+            <div class="card">
+                <div class="contact-links">
+                    <a href="mailto:jojuyeon9@gmail.com" class="contact-link">
+                        ✉️ jojuyeon9@gmail.com
+                    </a>
+                    <a href="https://instagram.com/zvunn_" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        📷 @zvunn_
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Juyeon Jo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll adjustment for fixed navigation height
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const navHeight = 52;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
